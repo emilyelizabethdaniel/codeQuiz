@@ -1,139 +1,106 @@
-// global variables
-var question = "";
-var answer1 = "";
-var answer2 = "";
-var answer3 = "";
-var answer4 = "";
-var numberCorrect = 0;
-var userSelection = "";
+// Data variables
+var questions = [{
+        text: "What are the types of date in js",
+        choices: ["string", "int", "boolean", "all"],
+        answer: "all"
+    },
+    {
+        text: "question 1",
+        choices: ["answer1", "answer2", "answer3", "answer4"],
+        answer: "answer2"
+    },
+    {
+        text: "question 1",
+        choices: ["answer1", "answer2", "answer3", "answer4"],
+        answer: "answer2"
+    },
+    {
+        text: "question 1",
+        choices: ["answer1", "answer2", "answer3", "answer4"],
+        answer: "answer2"
+    }
+];
 
-//timer variables
-var timer = "";
-var timeLeft = "";
+var currentQuestionIndex = -1;
+var initialRemainingSeconds = 60;
+var remainingSeconds = initialRemainingSeconds;
+
+// Display variables
+var q = document.createElement("ul");
+var a1 = document.createElement("li");
+var a2 = document.createElement("li");
+var a3 = document.createElement("li");
+var a4 = document.createElement("li");
+
+// display button variables
+
+function displayQuestion(questionIndex) {
+
+    var q = document.getElementById("quiz-questions-container");
+    console.log("q", q);
+
+    var a1 = document.createElement("li");
+
+    var a2 = document.createElement("li");
+
+    var a3 = document.createElement("li");
+
+    var a4 = document.createElement("li");
 
 
-function startGame() {
 
-    // makes the title, instructions, and start button disappear
-    emptyScreen();
+    // display the first question
+    q.innerHTML = questions[questionIndex].text;
+    a1.innerHTML = questions[questionIndex].choices[0];
+    a2.innerHTML = questions[questionIndex].choices[1];
+    a3.innerHTML = questions[questionIndex].choices[2];
+    a4.innerHTML = questions[questionIndex].choices[3];
+    q.appendChild(a1);
+    q.appendChild(a2);
+    q.appendChild(a3);
+    q.appendChild(a4);
+    console.log("it works");
 
-    // //  countdown begins function 
-    // var timeLeft = 60;
+}
+var timerCount = document.getElementById("showtimer");
+var timerClick = document.querySelector("#start-button");
 
-    // function callback() {
-    //     timeLeft--;
-    //     timerEl.textContent = "Time: " + timeLeft;
-    //     if (timeLeft === 0) {
-    //         clearInterval(timerInterval);
-    //         timerEl.textContent = "Time is up!";
-    //     }
-    // }
-    // var timerInterval = setInterval(callback, 1000);
-    // // askQuestion1();
-};
+function handleStartQuizClick() {
+    // start the timer
+    var quizTimer = setInterval(function() {
+        if (remainingSeconds <= 0) {
+            clearInterval(quizTimer);
+            console.log('Quiz complete');
+        } else {
+            // Decrement timer
+            timerCount.textContent = remainingSeconds;
 
-function emptyScreen() {
-    document.body.setAttribute("style", "display: none");
-};
+            remainingSeconds = remainingSeconds - 1;
+            console.log('seconds remaining: ' + remainingSeconds);
+        }
+    }, 1000);
+    document.getElementById("showtimer").textContent = remainingSeconds;
+    displayQuestion(0);
 
-function addText(); {
 
 }
 
+var startBtn = document.getElementById("startBtn");
+var answerButtons = document.getElementById("answer-buttons")
+
+document.addEventListener('click', function() {
+    document.getElementById("main-page").textContent = "";
+    document.getElementById("main-page").setAttribute("style", "background-color: white", "margin: 0%");
+});
+
+document.addEventListener('click', function() {
+    document.getElementById("answer-buttons");
+    if ("answer-buttons" === 'click') {
+        displayQuestion();
+    }
+});
 
 
-// function bringOnTheNextQuestion() {
-//     var q = document.createElement("li");
-//     var a1 = document.createElement("li");
-//     var a2 = document.createElement("li");
-//     var a3 = document.createElement("li");
-//     var a4 = document.createElement("li");
-
-//     q.textContent = question;
-//     a1.textContent = answer1;
-//     a2.textContent = answer2;
-//     a3.textContent = answer3;
-//     a4.textContent = answer4;
-
-//     q.appendChild(a1);
-//     q.appendChild(a2);
-//     q.appendChild(a3);
-//     q.appendChild(a3);
-//     console.log("it works");
-//     //when button is clicked, display 
-//     chooseAnAnswer();
-// };
-
-// function chooseAnAnswer() {
-//     if (correctAnswer === answer1) {
-//         numberCorrect + 1;
-
-//         console.log("good job!");
-
-//     } else if (correctAnswer != answer1) {
-//         timeLeft - 10;
-//         console.log("You'll get it next time!");
-//         return
-//     }
-//     emptyScreen();
-// };
-
-
-
-// function question1() {
-//     question = "what is question one";
-//     answer1 = "answer1";
-//     answer2 = "answer2";
-//     answer3 = "answer3";
-//     answer4 = "answer4";
-//     correctAnswer = answer1;
-
-//     var currentQuestion = questions[0]
-//     question = currentQuestion.questionTExt;
-//     option1 = current.Question.choices[0];
-// ;
-// };
-
-
-// // emptyScreen();
-// //first function called to clear the starter page 
-
-
-
-
-var question = [{
-        questionText = "question 1",
-        choices = ["answer1", "answer2", "answer3", "answer4"],
-        answer = "answer2"
-    },
-    {
-        questionText = "question 1",
-        choices = ["answer1", "answer2", "answer3", "answer4"],
-        answer = "answer2"
-    },
-    {
-        questionText = "question 1",
-        choices = ["answer1", "answer2", "answer3", "answer4"],
-        answer = "answer2"
-    },
-    {
-        questionText = "question 1",
-        choices = ["answer1", "answer2", "answer3", "answer4"],
-        answer = "answer2"
-    },
-
-]
-
-//timer
-
-//startGame();
-
-//question1
-
-//question 2
-
-//question 3
-
-//function if answer is right
-
-//function if answer is wrong
+function correctAnswer() {
+    //if button selected = ans
+}

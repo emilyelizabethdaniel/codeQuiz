@@ -21,12 +21,22 @@
         <p>An incorrect answer will subtract 10 seconds off your time</p>
         <p>A correct answer will add to your points!</p>
         <h3>Good Luck!</h3>
-        <button id="startBtn" onclick="startGame()">Click here to begin</button>
+        <button id="startBtn" onClick="handleStartQuizClick()">Click here to begin</button>
+    </div>
+    <div id="showtimer"></div>
+
+    <div id="quiz-questions-container">
+        <ul id="quiz-questions">
+            <li>
+                <button id="answer-buttons" onclick="displayNextQuestion()"></button>
+            </li>
+        </ul>
+
     </div>
 
+    <script src="./assets/javascript/script.js">
+    </script>
 </body>
 
-<script src="./assets/javascript/script2.js">
-</script>
 
 </html>
