@@ -11,69 +11,129 @@ var userSelection = "";
 var timer = "";
 var timeLeft = "";
 
-//var timer
-// function nextQuestion(); {
-// if answer selected: run button event listener. run, bringOnTheNextQuestion.
-// }
+
+function startGame() {
+
+    // makes the title, instructions, and start button disappear
+    emptyScreen();
+
+    // //  countdown begins function 
+    // var timeLeft = 60;
+
+    // function callback() {
+    //     timeLeft--;
+    //     timerEl.textContent = "Time: " + timeLeft;
+    //     if (timeLeft === 0) {
+    //         clearInterval(timerInterval);
+    //         timerEl.textContent = "Time is up!";
+    //     }
+    // }
+    // var timerInterval = setInterval(callback, 1000);
+    // // askQuestion1();
+};
 
 function emptyScreen() {
-    document.body.innerHTML = "";
+    document.body.setAttribute("style", "display: none");
 };
 
-function bringOnTheNextQuestion() {
-    var q = document.createElement("li");
-    var a1 = document.createElement("li");
-    var a2 = document.createElement("li");
-    var a3 = document.createElement("li");
-    var a4 = document.createElement("li");
+function addText(); {
 
-    q.textContent = question;
-    a1.textContent = answer1;
-    a2.textContent = answer2;
-    a3.textContent = answer3;
-    a4.textContent = answer4;
-
-    q.appendChild(a1);
-    q.appendChild(a2);
-    q.appendChild(a3);
-    q.appendChild(a3);
-    console.log("it works");
-    //when button is clicked, display correct
-}
-
-function chooseAnAnswer() {
-    if (correctAnswer === answer1) {
-        numberCorrect + 1;
-
-        console.log("good job!");
-
-    } else if (correctAnswer != answer1) {
-        timeLeft - 10;
-        console.log("You'll get it next time!");
-        return
-    }
-    emptyScreen();
 }
 
 
 
-function question1() {
-    question = "what is question one";
-    answer1 = "answer1";
-    answer2 = "answer2";
-    answer3 = "answer3";
-    answer4 = "answer4";
-    correctAnswer = answer1;
+// function bringOnTheNextQuestion() {
+//     var q = document.createElement("li");
+//     var a1 = document.createElement("li");
+//     var a2 = document.createElement("li");
+//     var a3 = document.createElement("li");
+//     var a4 = document.createElement("li");
 
-    if (correctAnswer === answer1) {
-        numberCorrect + 1;
+//     q.textContent = question;
+//     a1.textContent = answer1;
+//     a2.textContent = answer2;
+//     a3.textContent = answer3;
+//     a4.textContent = answer4;
 
-        console.log("good job!");
+//     q.appendChild(a1);
+//     q.appendChild(a2);
+//     q.appendChild(a3);
+//     q.appendChild(a3);
+//     console.log("it works");
+//     //when button is clicked, display 
+//     chooseAnAnswer();
+// };
 
-    } else if (correctAnswer != answer1) {
-        timeLeft - 10;
-        console.log("You'll get it next time!");
-    }
-};
+// function chooseAnAnswer() {
+//     if (correctAnswer === answer1) {
+//         numberCorrect + 1;
 
-bringOnTheNextQuestion();
+//         console.log("good job!");
+
+//     } else if (correctAnswer != answer1) {
+//         timeLeft - 10;
+//         console.log("You'll get it next time!");
+//         return
+//     }
+//     emptyScreen();
+// };
+
+
+
+// function question1() {
+//     question = "what is question one";
+//     answer1 = "answer1";
+//     answer2 = "answer2";
+//     answer3 = "answer3";
+//     answer4 = "answer4";
+//     correctAnswer = answer1;
+
+//     var currentQuestion = questions[0]
+//     question = currentQuestion.questionTExt;
+//     option1 = current.Question.choices[0];
+// ;
+// };
+
+
+// // emptyScreen();
+// //first function called to clear the starter page 
+
+
+
+
+var question = [{
+        questionText = "question 1",
+        choices = ["answer1", "answer2", "answer3", "answer4"],
+        answer = "answer2"
+    },
+    {
+        questionText = "question 1",
+        choices = ["answer1", "answer2", "answer3", "answer4"],
+        answer = "answer2"
+    },
+    {
+        questionText = "question 1",
+        choices = ["answer1", "answer2", "answer3", "answer4"],
+        answer = "answer2"
+    },
+    {
+        questionText = "question 1",
+        choices = ["answer1", "answer2", "answer3", "answer4"],
+        answer = "answer2"
+    },
+
+]
+
+//timer
+
+//startGame();
+
+//question1
+
+//question 2
+
+//question 3
+
+//function if answer is right
+
+//function if answer is wrong

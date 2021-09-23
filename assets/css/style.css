@@ -5,30 +5,65 @@
     font-family: sans-serif;
 }
 
-header {
-    display: inline;
-    left: 0;
-    top: 0;
-    font-size: 30px;
-    text-align: center;
-    padding: 30px;
-    margin-bottom: 15px;
-    margin-top: 30px;
+h1 {
+    font-size: 40px;
+    padding: 10px;
+    margin: 20px;
 }
 
-section {
-    border: 1px solid brown;
+#main-page {
+    /* border: 1px solid brown; */
     padding: 40px;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 28%;
+    margin-right: 28%;
     text-align: center;
+    background-color: #D7F486;
+    color: black;
+    border-radius: 6px;
+    margin-top: 35px;
+}
+
+.highscores {
+    padding: 40px;
+    margin-left: 28%;
+    margin-right: 28%;
+    text-align: center;
+    background-color: #D7F486;
+    color: black;
+    border-radius: 6px;
+    margin-top: 35px;
+    padding-bottom: 30%;
+    ;
 }
 
 form {
     padding: 5px;
 }
 
+nav {
+    margin-top: 35px;
+    text-align: center;
+    padding: 20px;
+    font-size: larger;
+}
+
+a {
+    text-decoration: none;
+    background-color: #F4A386;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+}
+
+a:hover {
+    color: black;
+}
+
+div p {
+    padding: 10px;
+}
+
 button {
     padding: 5px;
-    margin-top: 15px;
+    margin-top: 25px;
 }
