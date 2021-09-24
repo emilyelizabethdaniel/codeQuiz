@@ -63,6 +63,26 @@ div p {
 }
 
 button {
-    padding: 5px;
+    padding: 10px;
     margin-top: 25px;
+    margin: 25px;
+    display: inline;
+}
+
+.timer {
+    text-align: center;
+    padding: 25px;
+    margin: 20px;
+    background-color: #F4DA86;
+    margin-left: 45%;
+    margin-right: 45%;
+    border-radius: 8px;
+}
+
+#quiz-questions-container {
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+    background-color: #86F4DA;
+    border-radius: 8px;
 }

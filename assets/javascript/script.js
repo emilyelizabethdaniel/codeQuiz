@@ -1,6 +1,6 @@
 // Data variables
 var questions = [{
-        text: "What are the types of date in js",
+        text: "Which of these is a type of variable in java script?:",
         choices: ["string", "int", "boolean", "all"],
         answer: "all"
     },
@@ -24,30 +24,30 @@ var questions = [{
 var currentQuestionIndex = -1;
 var initialRemainingSeconds = 60;
 var remainingSeconds = initialRemainingSeconds;
+var timerCount = document.getElementById("showtimer");
+var timerClick = document.querySelector("#start-button");
 
 // Display variables
-var q = document.createElement("ul");
-var a1 = document.createElement("li");
-var a2 = document.createElement("li");
-var a3 = document.createElement("li");
-var a4 = document.createElement("li");
+var q = document.createElement("h2");
+var a1 = document.createElement("button");
+var a2 = document.createElement("button");
+var a3 = document.createElement("button");
+var a4 = document.createElement("button");
 
 // display button variables
 
 function displayQuestion(questionIndex) {
 
     var q = document.getElementById("quiz-questions-container");
-    console.log("q", q);
 
-    var a1 = document.createElement("li");
-
-    var a2 = document.createElement("li");
-
-    var a3 = document.createElement("li");
-
-    var a4 = document.createElement("li");
-
-
+    // var a1 = document.createElement("li");
+    // var a1 = document.createElement("button");
+    // // var a2 = document.createElement("li");
+    // var a2 = document.createElement("button");
+    // // var a3 = document.createElement("li");
+    // var a3 = document.createElement("button");
+    // // var a4 = document.createElement("li");
+    // var a4 = document.createElement("button");
 
     // display the first question
     q.innerHTML = questions[questionIndex].text;
@@ -59,11 +59,7 @@ function displayQuestion(questionIndex) {
     q.appendChild(a2);
     q.appendChild(a3);
     q.appendChild(a4);
-    console.log("it works");
-
 }
-var timerCount = document.getElementById("showtimer");
-var timerClick = document.querySelector("#start-button");
 
 function handleStartQuizClick() {
     // start the timer
@@ -81,26 +77,14 @@ function handleStartQuizClick() {
     }, 1000);
     document.getElementById("showtimer").textContent = remainingSeconds;
     displayQuestion(0);
-
-
 }
-
-var startBtn = document.getElementById("startBtn");
-var answerButtons = document.getElementById("answer-buttons")
 
 document.addEventListener('click', function() {
     document.getElementById("main-page").textContent = "";
     document.getElementById("main-page").setAttribute("style", "background-color: white", "margin: 0%");
 });
 
-document.addEventListener('click', function() {
-    document.getElementById("answer-buttons");
-    if ("answer-buttons" === 'click') {
-        displayQuestion();
-    }
-});
-
-
-function correctAnswer() {
-    //if button selected = ans
-}
+// function answerButtonClicked() {
+//     var answerButtons = document.getElementById("answer-buttons")
+//     answerButtons.addEventListener('click' (displayQuestion()));
+// }
