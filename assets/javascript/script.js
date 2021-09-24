@@ -1,4 +1,5 @@
-var quizContainer = document.getElementById("quiz-questions-container")
+var quizContainer = document.getElementById("quiz-questions-container");
+var resultsContainer = document.getElementById("display-answers-container");
 
 // Data variables
 var questions = [{
@@ -18,8 +19,13 @@ var questions = [{
     },
     {
         text: "How do you link a js file to an html file",
-        choices: ["<link>", "<a>", "<add js here>", "www.javascript.com"],
-        answer: "<link>"
+        choices: ["<script>", "<link>", "<add js here>", "www.javascript.com"],
+        answer: "<script>"
+    },
+    {
+        text: "What special character follows every expression in js",
+        choices: [":", ";", "!", "?"],
+        answer: "<;>"
     }
 ];
 
@@ -28,6 +34,7 @@ var initialRemainingSeconds = 60;
 var remainingSeconds = initialRemainingSeconds;
 var timerCount = document.getElementById("showtimer");
 var timerClick = document.querySelector("#start-button");
+var quizTimer = 0;
 
 // Display variables
 var q = document.createElement("h2");
@@ -37,15 +44,14 @@ var a3 = document.createElement("button");
 var a4 = document.createElement("button");
 
 function displayQuestion() {
-    if (currentQuestionIndex > questions.length) {
-        console.log("no more q's");
-        var finalScore = document.createAttribute("h3");
 
-        finalScore.textContent = ("Your Score:" + remainingSeconds);
-        q.appendChild(finalScore);
-        console.log("?");
+    displayScore();
+
+    if (currentQuestionIndex > 4) {
+
+        clearInterval(quizTimer);
+
     } else {
-        var q = document.getElementById("quiz-questions-container");
 
         // display the first question
         q.textContent = questions[currentQuestionIndex].text;
@@ -53,13 +59,14 @@ function displayQuestion() {
         a2.textContent = questions[currentQuestionIndex].choices[1];
         a3.textContent = questions[currentQuestionIndex].choices[2];
         a4.textContent = questions[currentQuestionIndex].choices[3];
-        q.appendChild(a1);
-        q.appendChild(a2);
-        q.appendChild(a3);
-        q.appendChild(a4);
+        quizContainer.appendChild(q);
+        quizContainer.appendChild(a1);
+        quizContainer.appendChild(a2);
+        quizContainer.appendChild(a3);
+        quizContainer.appendChild(a4);
+
 
     }
-
 };
 
 quizContainer.addEventListener("click", function(event) {
@@ -68,21 +75,22 @@ quizContainer.addEventListener("click", function(event) {
         var answerChosen = buttonClicked.textContent;
         var realAnswer = questions[currentQuestionIndex].answer;
     }
-
     // logic for whether the question was right or wrong
     if (answerChosen != realAnswer) {
         remainingSeconds = remainingSeconds - 10;
         currentQuestionIndex = currentQuestionIndex + 1;
+
         displayQuestion();
     } else {
         currentQuestionIndex = currentQuestionIndex + 1;
         displayQuestion();
     }
+
 });
 
 function handleStartQuizClick() {
     // start the timer
-    var quizTimer = setInterval(function() {
+    quizTimer = setInterval(function() {
         if (remainingSeconds <= 0) {
             clearInterval(quizTimer);
             console.log('Quiz complete');
@@ -92,9 +100,10 @@ function handleStartQuizClick() {
 
             remainingSeconds = remainingSeconds - 1;
             console.log('seconds remaining: ' + remainingSeconds);
+            document.getElementById("showtimer").textContent = ("Seconds Remaining: " + remainingSeconds);
         }
     }, 1000);
-    document.getElementById("showtimer").textContent = remainingSeconds;
+    document.getElementById("showtimer").textContent = ("Seconds Remaining: " + remainingSeconds);
     displayQuestion();
 }
 
@@ -102,5 +111,13 @@ var startButton = document.getElementById("startBtn")
 
 startButton.addEventListener('click', function() {
     document.getElementById("main-page").textContent = "";
-    document.getElementById("main-page").setAttribute("style", "background-color: white", "margin: 0%");
+    document.getElementById("main-page").setAttribute("style", "background-color: #5B8DA1", "margin: 0%");
 });
+
+function displayScore() {
+    if (remainingSeconds === 0 || currentQuestionIndex > 4) {
+        //end game 
+        finalScore = remainingSeconds;
+        console.log(finalScore);
+    }
+}
