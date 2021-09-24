@@ -5,23 +5,23 @@ var questions = [{
         answer: "all"
     },
     {
-        text: "question 1",
+        text: "did it work?",
         choices: ["answer1", "answer2", "answer3", "answer4"],
         answer: "answer2"
     },
     {
-        text: "question 1",
+        text: " yes it worked ",
         choices: ["answer1", "answer2", "answer3", "answer4"],
         answer: "answer2"
     },
     {
-        text: "question 1",
+        text: "hell yeah 1",
         choices: ["answer1", "answer2", "answer3", "answer4"],
         answer: "answer2"
     }
 ];
 
-var currentQuestionIndex = -1;
+var currentQuestionIndex = 0;
 var initialRemainingSeconds = 60;
 var remainingSeconds = initialRemainingSeconds;
 var timerCount = document.getElementById("showtimer");
@@ -33,6 +33,11 @@ var a1 = document.createElement("button");
 var a2 = document.createElement("button");
 var a3 = document.createElement("button");
 var a4 = document.createElement("button");
+a1.id = "button-choice-0";
+a2.id = "button-choice-1";
+a3.id = "button-choice-2";
+a4.id = "button-choice-3"
+
 
 // display button variables
 
@@ -40,25 +45,54 @@ function displayQuestion(questionIndex) {
 
     var q = document.getElementById("quiz-questions-container");
 
-    // var a1 = document.createElement("li");
-    // var a1 = document.createElement("button");
-    // // var a2 = document.createElement("li");
-    // var a2 = document.createElement("button");
-    // // var a3 = document.createElement("li");
-    // var a3 = document.createElement("button");
-    // // var a4 = document.createElement("li");
-    // var a4 = document.createElement("button");
-
     // display the first question
     q.innerHTML = questions[questionIndex].text;
+
     a1.innerHTML = questions[questionIndex].choices[0];
+    a1.value = questions[questionIndex].choices[0];
+
     a2.innerHTML = questions[questionIndex].choices[1];
+    // a2.value
     a3.innerHTML = questions[questionIndex].choices[2];
     a4.innerHTML = questions[questionIndex].choices[3];
     q.appendChild(a1);
     q.appendChild(a2);
     q.appendChild(a3);
     q.appendChild(a4);
+
+    currentQuestionIndex = currentQuestionIndex + 1;
+    selectAnswer();
+
+};
+
+function selectAnswer() {
+    var choiceOneButton = document.getElementById("button-choice-0")
+    choiceOneButton.addEventListener('click', function() {
+        displayQuestion(currentQuestionIndex);
+    });
+    var choiceTwoButton = document.getElementById("button-choice-1")
+    choiceTwoButton.addEventListener('click', function() {
+        displayQuestion(currentQuestionIndex);
+    })
+
+    var choiceThreeButton = document.getElementById("button-choice-2")
+    choiceThreeButton.addEventListener('click', function() {
+        displayQuestion(currentQuestionIndex);
+    })
+    var choiceFourButton = document.getElementById("button-choice-3")
+    choiceFourButton.addEventListener('click', function() {
+            displayQuestion(currentQuestionIndex);
+        })
+        // if (questionIndex.answer != qValue) {
+        //     var newTime = remainingSeconds - 10;
+        //     remainingSeconds = newTime;
+        // }
+};
+
+
+function isAnswerCorrect() {
+    var correctAnswer = questions[answer];
+
 }
 
 function handleStartQuizClick() {
@@ -79,12 +113,14 @@ function handleStartQuizClick() {
     displayQuestion(0);
 }
 
-document.addEventListener('click', function() {
+
+//start button 
+
+
+
+var startButton = document.getElementById("startBtn")
+
+startButton.addEventListener('click', function() {
     document.getElementById("main-page").textContent = "";
     document.getElementById("main-page").setAttribute("style", "background-color: white", "margin: 0%");
 });
-
-// function answerButtonClicked() {
-//     var answerButtons = document.getElementById("answer-buttons")
-//     answerButtons.addEventListener('click' (displayQuestion()));
-// }
