@@ -39,16 +39,16 @@ var a4 = document.createElement("button");
 function displayQuestion() {
     if (currentQuestionIndex > questions.length) {
         console.log("no more q's");
-        // var finalScore = document.createAttribute("h3");
+        var finalScore = document.createAttribute("h3");
 
-        // finalScore.textContent = ("Your Score:" + remainingSeconds);
-        // q.appendChild(finalScore);
-        // console.log("?");
+        finalScore.textContent = ("Your Score:" + remainingSeconds);
+        q.appendChild(finalScore);
+        console.log("?");
     } else {
         var q = document.getElementById("quiz-questions-container");
 
         // display the first question
-        q.textContent = questions[currentQuestionIndex].text[0];
+        q.textContent = questions[currentQuestionIndex].text;
         a1.textContent = questions[currentQuestionIndex].choices[0];
         a2.textContent = questions[currentQuestionIndex].choices[1];
         a3.textContent = questions[currentQuestionIndex].choices[2];
@@ -57,7 +57,9 @@ function displayQuestion() {
         q.appendChild(a2);
         q.appendChild(a3);
         q.appendChild(a4);
+
     }
+
 };
 
 quizContainer.addEventListener("click", function(event) {
@@ -76,7 +78,7 @@ quizContainer.addEventListener("click", function(event) {
         currentQuestionIndex = currentQuestionIndex + 1;
         displayQuestion();
     }
-})
+});
 
 function handleStartQuizClick() {
     // start the timer
