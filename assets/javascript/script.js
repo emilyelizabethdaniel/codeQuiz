@@ -35,31 +35,22 @@ var a1 = document.createElement("button");
 var a2 = document.createElement("button");
 var a3 = document.createElement("button");
 var a4 = document.createElement("button");
-a1.id = "button-choice-0";
-a2.id = "button-choice-1";
-a3.id = "button-choice-2";
-a4.id = "button-choice-3"
-
-
-// display button variables
 
 function displayQuestion() {
     if (currentQuestionIndex > questions.length) {
-        var finalScore = document.createAttribute("h3");
-        finalScore.textContent = ("Your Score: remainingSeconds");
-        q.appendChild(finalScore);
-        console.log("?");
+        console.log("no more q's");
+        // var finalScore = document.createAttribute("h3");
+
+        // finalScore.textContent = ("Your Score:" + remainingSeconds);
+        // q.appendChild(finalScore);
+        // console.log("?");
     } else {
         var q = document.getElementById("quiz-questions-container");
 
         // display the first question
-        q.textContent = questions[currentQuestionIndex].text;
-
+        q.textContent = questions[currentQuestionIndex].text[0];
         a1.textContent = questions[currentQuestionIndex].choices[0];
-        a1.value = questions[currentQuestionIndex].choices[0];
-
         a2.textContent = questions[currentQuestionIndex].choices[1];
-        // a2.value
         a3.textContent = questions[currentQuestionIndex].choices[2];
         a4.textContent = questions[currentQuestionIndex].choices[3];
         q.appendChild(a1);
@@ -68,7 +59,6 @@ function displayQuestion() {
         q.appendChild(a4);
     }
 };
-
 
 quizContainer.addEventListener("click", function(event) {
     if (event.target.matches("button")) {
@@ -88,13 +78,6 @@ quizContainer.addEventListener("click", function(event) {
     }
 })
 
-
-
-function isAnswerCorrect() {
-    var correctAnswer = questions[answer];
-
-}
-
 function handleStartQuizClick() {
     // start the timer
     var quizTimer = setInterval(function() {
@@ -112,11 +95,6 @@ function handleStartQuizClick() {
     document.getElementById("showtimer").textContent = remainingSeconds;
     displayQuestion();
 }
-
-
-//start button 
-
-
 
 var startButton = document.getElementById("startBtn")
 
