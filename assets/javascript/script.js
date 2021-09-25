@@ -42,10 +42,19 @@ var a1 = document.createElement("button");
 var a2 = document.createElement("button");
 var a3 = document.createElement("button");
 var a4 = document.createElement("button");
+var showFinalScore = document.createElement("p")
+
+function finalScore() {
+    showFinalScore = document.createElement("p")
+    showFinalScore.textContent = ("Your Final Score = " + remainingSeconds);
+    quizContainer.appendChild(showFinalScore);
+    console.log("correct");
+};
 
 function displayQuestion() {
 
     if (currentQuestionIndex > 4) {
+        finalScore();
 
         clearInterval(quizTimer);
 
@@ -111,25 +120,9 @@ startButton.addEventListener('click', function() {
     document.getElementById("main-page").setAttribute("style", "background-color: #5B8DA1", "margin: 0%");
 });
 
-function finalScore() {
-    var showFinalScore = document.createElement("p")
-    displayCorrect.textContent = ("Your Final Score = " + remainingSeconds);
-    quizContainer.appendChild(showFinalScore);
-    console.log("correct");
-}
-
-
 // function displayCorrectOrFalse() {
 
 //     var displayCorrect = document.createElement("p")
 //     displayCorrect.textContent = ("Correct!");
 //     quizContainer.appendChild(displayCorrect);
-// }
-
-
-// function displayScore() {
-//     if (remainingSeconds === 0 || currentQuestionIndex > 4) {
-//         //
-//         finalScore = remainingSeconds;
-//     }
-// }
+//
