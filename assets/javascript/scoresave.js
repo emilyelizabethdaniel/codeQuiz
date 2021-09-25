@@ -8,3 +8,4 @@ var scoreList = document.getElementById("result");
 
 var initialPlacement = document.getElementById("result").textContent = localStorage.getItem("userinitials");
 var scorePlacement = document.getElementById("result").textContent = localStorage.getItem("userscore");
+
