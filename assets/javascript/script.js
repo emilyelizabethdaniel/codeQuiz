@@ -1,5 +1,7 @@
 var quizContainer = document.getElementById("quiz-questions-container");
 var resultsContainer = document.getElementById("display-answers-container");
+var scoreContainer = document.getElementById("results-container");
+var userInitials = document.getElementById("initials");
 
 // Data variables
 var questions = [{
@@ -51,12 +53,20 @@ function finalScore() {
     console.log("correct");
 };
 
+function displayHighScores() {
+    var resultsFinalScore = documents.createElement("p");
+    resultsFinalScore.textContent(remainingSeconds);
+    resultsContainer.appendChild(resultsFinalScore);
+};
+
 function displayQuestion() {
 
     if (currentQuestionIndex > 4) {
-        finalScore();
-
         clearInterval(quizTimer);
+        // finalScore();
+        clearInterval(quizTimer);
+        finalScore();
+        displayHighScores();
 
     } else {
 
@@ -75,9 +85,10 @@ function displayQuestion() {
 };
 
 quizContainer.addEventListener("click", function(event) {
+
     if (event.target.matches("button")) {
-        // To Do event.stopPropagation();
-        // event.preventDefault();
+        event.stopPropagation();
+        event.preventDefault();
         var buttonClicked = event.target;
         var answerChosen = buttonClicked.textContent;
         var realAnswer = questions[currentQuestionIndex].answer;
@@ -125,4 +136,25 @@ startButton.addEventListener('click', function() {
 //     var displayCorrect = document.createElement("p")
 //     displayCorrect.textContent = ("Correct!");
 //     quizContainer.appendChild(displayCorrect);
-//
+
+
+// display high score:
+
+// function displayHighScores() {
+//     var resultsFinalScore = documents.createElement("p");
+//     resultsFinalScore.textContent(remainingSeconds);
+//     resultsContainer.appendChild(resultsFinalScore);
+// };
+
+
+//local storage 
+// var myScore = remainingSeconds;
+// var myInitials = "initials";
+
+// localStorage.setItem("userinitials", myInitials);
+// localStorage.setItem("userscore", myScore);
+
+// var scoreList = document.getElementById("result");
+
+// var initialPlacement = document.getElementById("result").textContent = localStorage.getItem("userinitials");
+// var scorePlacement = document.getElementById("result").textContent = localStorage.getItem("userscore");
