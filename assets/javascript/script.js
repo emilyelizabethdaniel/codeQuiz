@@ -53,24 +53,15 @@ function finalScore() {
     console.log("correct");
 };
 
-function displayHighScores() {
-    var resultsFinalScore = documents.createElement("p");
-    resultsFinalScore.textContent(remainingSeconds);
-    resultsContainer.appendChild(resultsFinalScore);
-};
 
 function displayQuestion() {
 
     if (currentQuestionIndex > 4) {
         clearInterval(quizTimer);
-        // finalScore();
-        clearInterval(quizTimer);
         finalScore();
-        displayHighScores();
-
     } else {
-
         // display the first question
+
         q.textContent = questions[currentQuestionIndex].text;
         a1.textContent = questions[currentQuestionIndex].choices[0];
         a2.textContent = questions[currentQuestionIndex].choices[1];
@@ -85,10 +76,9 @@ function displayQuestion() {
 };
 
 quizContainer.addEventListener("click", function(event) {
-
+    event.stopPropagation();
+    event.preventDefault();
     if (event.target.matches("button")) {
-        event.stopPropagation();
-        event.preventDefault();
         var buttonClicked = event.target;
         var answerChosen = buttonClicked.textContent;
         var realAnswer = questions[currentQuestionIndex].answer;
@@ -149,9 +139,24 @@ startButton.addEventListener('click', function() {
 
 //local storage 
 // var myScore = remainingSeconds;
-// var myInitials = "initials";
+var inputField = document.getElementById("initials");
+var submit = document.getElementById("submit");
 
-// localStorage.setItem("userinitials", myInitials);
+// localStorage.setItem("initials", inputField.value);
+// localStorage.getItem("initials", initials);
+
+submit.addEventListener('click', function(event) {
+    localStorage.setItem("initials", inputField.value);
+    event.preventDefault();
+
+});
+
+// function storeInitials() {
+//     if (localStorage.getItem("initials")(input) !== null) {
+//         initials = localStorage.getItem("initials");
+//         inputField.value = initials;
+//     }
+// }
 // localStorage.setItem("userscore", myScore);
 
 // var scoreList = document.getElementById("result");
