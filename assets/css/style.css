@@ -60,6 +60,14 @@ a:hover {
     color: black;
 }
 
+#startagain {
+    margin-top: 35px;
+    text-align: center;
+    padding: 20px;
+    font-size: larger;
+    margin-bottom: 20px;
+}
+
 div p {
     padding: 10px;
 }

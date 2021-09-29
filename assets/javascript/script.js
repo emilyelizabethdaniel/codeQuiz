@@ -44,7 +44,7 @@ var a1 = document.createElement("button");
 var a2 = document.createElement("button");
 var a3 = document.createElement("button");
 var a4 = document.createElement("button");
-var showFinalScore = document.createElement("p")
+var showFinalScore = document.createElement("p");
 
 function finalScore() {
     showFinalScore = document.createElement("p")
@@ -139,14 +139,14 @@ startButton.addEventListener('click', function() {
 
 //local storage 
 // var myScore = remainingSeconds;
-var inputField = document.getElementById("initials");
+var initials = document.getElementById("initials");
 var submit = document.getElementById("submit");
 
 // localStorage.setItem("initials", inputField.value);
 // localStorage.getItem("initials", initials);
 
 submit.addEventListener('click', function(event) {
-    localStorage.setItem("initials", inputField.value);
+    localStorage.setItem("initials", initials.value);
     event.preventDefault();
 
 });
